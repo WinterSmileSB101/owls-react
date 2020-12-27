@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "allowJs": false,
+    "jsx": "react",
+    "composite": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "lib": ["DOM", "ES2016", "ES2016.Array.Include"],
+    "esModuleInterop": true,
+    "paths": {
+      "@lolita/core/*": ["src/framework/core/*"],
+      "@lolita/server-side/*": ["src/framework/server-side/*"],
+      "@lolita/client-side/*": ["src/framework/server-side/*"],
+      "@lolita/link-react/*": ["src/framework/server-side/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "compileOnSave": true,
+  "exclude": ["node_modules", "dist"]
+}

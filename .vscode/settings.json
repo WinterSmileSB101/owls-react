@@ -1,0 +1,59 @@
+{
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "eslint.validate": ["javascript","javascriptreact","typescript","typescriptreacr"],
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": false
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "dist": true,
+        "yarn.lock":true,
+        "package-lock.json":true,
+        ".eslintrc.js":true
+    },
+    "editor.formatOnSave": true,
+    "[javascript]":{
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[vue-html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[vue-postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    }
+}
