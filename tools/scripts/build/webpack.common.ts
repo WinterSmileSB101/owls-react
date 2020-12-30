@@ -38,6 +38,8 @@ const chunks = getEntry();
 
 console.log(chunks);
 
+const scriptPartialPath = `./static/scripts/[name].${IS_DEV ? '' : '[contenthash:8].'}js`;
+
 const config: UnionWebpackConfigWithDevelopmentServer = {
     mode: 'production',
     entry: chunks,
@@ -121,12 +123,13 @@ const config: UnionWebpackConfigWithDevelopmentServer = {
         },
     },
     output: {
-        path: path.resolve(PROJECT_PATH, './dist/static/scripts/'),
-        filename: `[name].${IS_DEV ? '' : '[hash:8].'}js`,
+        path: path.resolve(PROJECT_PATH, './dist/'),
+        chunkFilename: scriptPartialPath,
+        filename: scriptPartialPath,
     },
     plugins: [
         ...WebpackConfig.fixedPlugins,
-        new HardSourceWebpackPlugin(), //only use in dev environment
+        new HardSourceWebpackPlugin(), // only use in dev environment
         new HtmlWebpackPlugin({
             template: path.resolve(PROJECT_PATH, './public/index.html'),
             filename: 'index.html',
@@ -178,7 +181,7 @@ const config: UnionWebpackConfigWithDevelopmentServer = {
                 new TerserPlugin({
                     extractComments: false,
                     terserOptions: {
-                        compress: { pure_funcs: ['console.log'] },
+                        compress: { pure_funcs: ['console.log'] }, // code need to be remove
                     },
                 }),
             !IS_DEV && new OptimizeCssAssetsPlugin(),
@@ -189,10 +192,17 @@ const config: UnionWebpackConfigWithDevelopmentServer = {
             minChunks: 1,
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
-            name: 'true',
+            name: true,
             automaticNameDelimiter: '~',
             cacheGroups: {
+                // all shared
+                shared: {
+                    chunks: 'initial',
+                    minChunks: 2,
+                    priority: 0,
+                },
                 vendors: {
+                    name: 'vendors',
                     test: /[/\\]node_modules[/\\]/,
                     priority: -10,
                 },

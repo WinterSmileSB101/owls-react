@@ -13,7 +13,7 @@ import AllConst, { WebpackConfig } from '../const';
 
 const { PROJECT_PATH } = AllConst.ProjectConfig;
 
-const developmentConfig: UnionWebpackConfigWithDevelopmentServer = merge(common, {
+const productionConfig: UnionWebpackConfigWithDevelopmentServer = merge(common, {
     // devtool: 'none',
     mode: 'production',
     plugins: [
@@ -34,8 +34,7 @@ const developmentConfig: UnionWebpackConfigWithDevelopmentServer = merge(common,
         }),
         new webpack.BannerPlugin({
             raw: true,
-            banner:
-                '/** @preserve Powered by react-ts-quick-starter (https://github.com/vortesnail/react-ts-quick-starter) */',
+            banner: '/** @preserve Powered by owls */',
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'server', // 开一个本地服务查看报告
@@ -45,4 +44,4 @@ const developmentConfig: UnionWebpackConfigWithDevelopmentServer = merge(common,
     ],
 });
 
-export default developmentConfig;
+export default productionConfig;
