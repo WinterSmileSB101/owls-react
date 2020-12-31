@@ -32,3 +32,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '12.x'
+          
+      - name: Install Dependencies
+        run: npm install
