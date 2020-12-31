@@ -32,12 +32,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Run Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.noe_version}}
-          
-      - name: npm install build test
-        run: |
-          npm install
-          npm run build --if-present
