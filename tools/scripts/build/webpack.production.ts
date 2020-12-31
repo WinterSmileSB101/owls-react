@@ -38,9 +38,8 @@ const developmentConfig: UnionWebpackConfigWithDevelopmentServer = merge(common,
                 '/** @preserve Powered by react-ts-quick-starter (https://github.com/vortesnail/react-ts-quick-starter) */',
         }),
         new BundleAnalyzerPlugin({
-            analyzerMode: 'server', // 开一个本地服务查看报告
-            analyzerHost: 'localhost', // host 设置
-            analyzerPort: 9628, // 端口号设置
+            analyzerMode: 'static', // static mode
+            reportFilename: './dist/analyzer/report.html',
         }),
     ],
 });
